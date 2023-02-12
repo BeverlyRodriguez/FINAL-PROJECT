@@ -29,20 +29,20 @@ ForSpeed = StringVar()
 ForSize = StringVar()
 data = []
 Speed = ['FAST', 'MEDIUM', 'SLOW']
-Size = ['20','40','60','80','100']
+Size = ['25','40','60','80','100']
 SortingList = ['SELECTION SORT',  
                'BUBBLE SORT', 
                'INSERTION SORT', 
                'MERGE SORT', 
                'QUICK SORT']
 
-canvas = Canvas(window, width=872, height=460, bg="#FAFAEB")
-canvas.grid(row=2, column=0, padx=10, pady=10)
+canvas = Canvas(window, width=860, height=460, bg="#FAFAEB")
+canvas.grid(row=2, column=0, padx=15, pady=5)
 
 def drawData(data, colorArray):
     canvas.delete("all")
-    canvas_width = 872
-    canvas_height = 455
+    canvas_width = 865
+    canvas_height = 450
     x_width = canvas_width / (len(data) + 1)
     offset = 3
     spacing = 3
@@ -50,7 +50,7 @@ def drawData(data, colorArray):
 
     for i, height in enumerate(normalizedData):
         x0 = i * x_width + offset + spacing
-        y0 = canvas_height - height * 445
+        y0 = canvas_height - height * 440
         x1 = (i + 1) * x_width + offset
         y1 = canvas_height
         canvas.create_rectangle(x0, y0, x1, y1, fill=colorArray[i])
@@ -77,11 +77,11 @@ def SpeedSetter():
     elif SpeedMenu.get() == 'MEDIUM':
         return 0.2
     else:
-        return 0.001
+        return 0.002
 
 def SizeSetter():
-    if SizeMenu.get() == '20':
-        return 20
+    if SizeMenu.get() == '25':
+        return 25
     elif SizeMenu.get() == '40':
         return 40
     elif SizeMenu.get() == '60':
