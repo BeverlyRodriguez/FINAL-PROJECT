@@ -19,8 +19,8 @@ def QuickSort(data, start, end, drawData, timeTick):
         QuickSort(data, start, pivot_position-1, drawData, timeTick)
         QuickSort(data, pivot_position+1, end, drawData, timeTick)
 
-        drawData(data, ["#9A9A32" if x >= start and x < pivot_position else "#0000FF" if x == pivot_position
-                        else "#8F8FBC" if x > pivot_position and x <=end else "#DCDC14"  for x in range(len(data))])
+        drawData(data, ["darkseagreen1" if x >= start and x < pivot_position else "#0000FF" if x == pivot_position
+                        else "darkslategray1" if x > pivot_position and x <=end else "gray10"  for x in range(len(data))])
         time.sleep(timeTick)
         
-    drawData(data, ["#DCDC14"  for x in range(len(data))])
+    drawData(data, ["#E066FF"  for x in range(len(data))])
