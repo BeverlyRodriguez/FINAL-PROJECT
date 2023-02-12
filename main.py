@@ -16,11 +16,12 @@ from quick import QuickSort
 # Making a window using the Tk widget
 window = tk.Tk()
 window.title('SORTING ALGORITHM VISUALIZER')
-window.geometry('895x720')
+window.geometry('950x720')
+window.configure(bg="mistyrose2")
 Title = Label(window, text="SORTING ALGORITHM VISUALIZER", bg="#FAFAEB", font=("georgia",22))
-Title.grid(row=0, column=0, padx=10, pady=5)
+Title.grid(row=0, column=0, padx=25, pady=5)
 Name = Label(window, text="Programmed By: Beverly Ann L. Rodriguez", bg="#FAFAEB", font=("roboto",10))
-Name.grid(row=1, column=0, padx=10, pady=0)
+Name.grid(row=1, column=0, padx=25, pady=5)
 
 
 # Generatorating Function
@@ -30,18 +31,18 @@ ForSize = StringVar()
 data = []
 Speed = ['FAST', 'MEDIUM', 'SLOW']
 Size = ['25','40','60','80','100']
-SortingList = ['SELECTION SORT',  
-               'BUBBLE SORT', 
-               'INSERTION SORT', 
-               'MERGE SORT', 
-               'QUICK SORT']
+SortingList = ['SELECTION',  
+               'BUBBLE', 
+               'INSERTION', 
+               'MERGE', 
+               'QUICK']
 
 canvas = Canvas(window, width=860, height=460, bg="#FAFAEB")
-canvas.grid(row=2, column=0, padx=15, pady=5)
+canvas.grid(row=2, column=0, padx=43, pady=5)
 
 def drawData(data, colorArray):
     canvas.delete("all")
-    canvas_width = 865
+    canvas_width = 867
     canvas_height = 450
     x_width = canvas_width / (len(data) + 1)
     offset = 3
@@ -68,7 +69,7 @@ def generate():
     for _ in range(size):
         data.append(random.randrange(minVal+1, maxVal+1))
 
-    drawData(data, ["#DCDC14" for x in range(len(data))])
+    drawData(data, ["gray10" for x in range(len(data))])
 
 
 def SpeedSetter():
@@ -94,21 +95,21 @@ def sort():
     global data
     timeTick = SpeedSetter()
 
-    if SortMenu.get() == 'SELECTION SORT':
+    if SortMenu.get() == 'SELECTION':
         SelectionSort(data, drawData, timeTick)
-    elif SortMenu.get() == 'BUBBLE SORT':
+    elif SortMenu.get() == 'BUBBLE':
         BubbleSort(data, drawData, timeTick)
-    elif SortMenu.get() == 'INSERTION SORT':
+    elif SortMenu.get() == 'INSERTION':
         InsertionSort(data, drawData, timeTick)
-    elif SortMenu.get() == 'MERGE SORT':
+    elif SortMenu.get() == 'MERGE':
         MergeSort(data, 0, len(data)-1, drawData, timeTick)
-    elif SortMenu.get() == 'QUICK SORT':
+    elif SortMenu.get() == 'QUICK':
         QuickSort(data, 0, len(data)-1, drawData, timeTick)
 
 
 
-FirstFrame = Frame(window, width= 1050, height=300, bg="#FAFAEB")
-FirstFrame.grid(row=11, column=0, padx=8, pady=10)
+FirstFrame = Frame(window, width= 1000, height=500, bg="#FAFAEB")
+FirstFrame.grid(row=10, column=0, padx=50, pady=10)
 
 #ComboBox
 FirstLabel = Label(FirstFrame, text="ALGORITHM: ", bg="#FAFAEB")
@@ -130,11 +131,11 @@ SizeMenu.grid(row=1, column=5, padx=5, pady=5)
 SizeMenu.current(0)
 
 #Buttons
-SortingButton = Button(FirstFrame, text="SORT", command=sort, bg="#CDCDC0", width=8, height=3)
-SortingButton.grid(column=8, row=3, padx=5, pady=5)
+SortingButton = Button(FirstFrame, text="SORT", command=sort,font=("roboto",12), bg="mediumorchid", fg = "white", width=13, height=2)
+SortingButton.grid(column=8, row=3, padx=15, pady=5)
 
-ShuffleButton = Button(FirstFrame, text="SHUFFLE", command=generate, bg = "red", fg = "white", width=8, height=3)
-ShuffleButton.grid(column=8, row=1, padx=5, pady=5)
+ShuffleButton = Button(FirstFrame, text="RANDOM", command=generate, font=("roboto",12), bg = "gray4", fg = "white", width=13, height=2)
+ShuffleButton.grid(column=8, row=1, padx=15, pady=5)
 
 #Scale
 MinimumData = Scale(FirstFrame, from_=0, to=10, resolution=1, orient=HORIZONTAL, label="Minimum Value",bg='white')
