@@ -54,12 +54,14 @@ def generate():
     global data
 
     data = []
-    for i in range(0, 100):
-        random_value = random.randint(1, 150)
-        data.append(random_value)
+    size = int(sizeEntry.get())
+    minVal = int(minEntry.get())
+    maxVal = int(maxEntry.get())
+    
+    for _ in range(size):
+        data.append(random.randrange(minVal+1, maxVal+1))
 
     drawData(data, ["#DCDC14" for x in range(len(data))])
-
 
 
 def SpeedSetter():
@@ -103,6 +105,8 @@ SpeedMenu = ttk.Combobox(FirstFrame, textvariable=ForSpeed, values=Speed)
 SpeedMenu.grid(row=0, column=6, padx=5, pady=5)
 SpeedMenu.current(0)
 
+sizeEntry = Scale(FirstFrame, from_=3, to=25, resolution=1, orient=HORIZONTAL, bg='white',label="Data Size")
+sizeEntry.grid(row=1, column=0, padx=5, pady=5)
 #Buttons
 SortingButton = Button(FirstFrame, text="SORT", command=sort, bg="#CDCDC0")
 SortingButton.grid(column=3, row=2, padx=5, pady=5)
@@ -111,4 +115,12 @@ ShuffleButton = Button(FirstFrame, text="SHUFFLE", command=generate, bg = "red",
 ShuffleButton.grid(column=2, row=2, padx=5, pady=5)
 
 
+minEntry = Scale(FirstFrame, from_=0, to=10, resolution=1, orient=HORIZONTAL, label="Min Value",bg='white')
+minEntry.grid(row=1, column=1, padx=5, pady=5)
+
+maxEntry = Scale(FirstFrame, from_=10, to=100, resolution=1, orient=HORIZONTAL, label="Max Value",bg='white')
+maxEntry.grid(row=1, column=2, padx=5, pady=5)
+
+sizeEntry = Scale(FirstFrame, from_=10, to=100, resolution=1, orient=HORIZONTAL, bg='white',label="Data Size")
+sizeEntry.grid(row=1, column=0, padx=5, pady=5)
 window.mainloop()
