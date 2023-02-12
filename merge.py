@@ -33,8 +33,8 @@ def MergeSort(data, start, end, drawData, timeTick):
 
         Mergesort(data, start, mid, end, drawData, timeTick)
 
-        drawData(data, ["#9A9A32" if x >= start and x < mid else "#0000FF" if x == mid 
-                        else "#8F8FBC" if x > mid and x <=end else "#DCDC14" for x in range(len(data))])
+        drawData(data, ["darkseagreen1" if x >= start and x < mid else "#E066FF" if x == mid 
+                        else "darkslategray1" if x > mid and x <=end else "gray10" for x in range(len(data))])
         time.sleep(timeTick)
 
-    drawData(data, ["#DCDC14" for x in range(len(data))])
+    drawData(data, ["#E066FF" for x in range(len(data))])
