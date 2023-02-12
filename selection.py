@@ -2,7 +2,7 @@
 import time #For time in animation
 
 
-def selection_sort(data, drawData, timeTick):
+def SelectionSort(data, drawData, timeTick):
     for i in range(len(data)-1):
         minimum = i
         for k in range(i+1, len(data)):
