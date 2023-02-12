@@ -1,3 +1,8 @@
+# DATA STRUCTURE AND ALGORITHM - FINAL PROJECT
+# SORTING ALGORITHM VISUALIZATION
+# Programmed by: Beverly Ann L. Rodriguez BSCOE 2-2
+
+
 import tkinter as tk
 import random
 from tkinter import *
