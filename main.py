@@ -74,11 +74,11 @@ def generate():
 
 def SpeedSetter():
     if SpeedMenu.get() == 'SLOW':
-        return 0.4
+        return 0.6
     elif SpeedMenu.get() == 'MEDIUM':
-        return 0.2
+        return 0.4
     else:
-        return 0.002
+        return 0.1
 
 def SizeSetter():
     if SizeMenu.get() == '25':
